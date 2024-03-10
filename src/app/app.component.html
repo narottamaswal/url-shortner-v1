@@ -1,0 +1,29 @@
+<header>
+  Shortify- URL Shortner
+</header>
+<section class="container">
+  <form #urlForm="ngForm" (ngSubmit)="onSubmitUrlForm(urlForm)" autocomplete="off" *ngIf="!isFormSubmitted">
+    <input type="url" name="inputUrl" class="form-input" placeholder="Place your URL" 
+    [(ngModel)]="model.inputUrl" #inputUrl ="ngModel" />
+    <div class="form-error"
+     [hidden]="(inputUrl.valid || inputUrl.pristine) && inputUrl.errors" >
+      <p *ngIf="inputUrl.errors && inputUrl.errors">Please Enter URL</p>
+    </div>
+    <button type="submit" [disabled]="urlForm.invalid" class="form-btn">
+     {{!isLoading ? "Generate Url" : "Generating..."}}
+    
+    </button>
+  </form>
+  <div class="short-url-div" *ngIf="isFormSubmitted">
+    <h2>Generated URL: </h2>
+    <div>
+      <p>
+        <a [href]="shortUrl" #shortUrlElementRef target="_blank" title="Click Me">{{shortUrl}}</a> 
+      </p>
+    </div>
+    <div class="short-url-div-btn">
+      <button (click)="copy(shortUrlElementRef)">{{!isTextCopied ? "Copy":"Copied"}} </button>&nbsp;&nbsp;&nbsp;
+      <button (click)="reset()">reset</button>
+    </div>
+  </div>
+</section>
