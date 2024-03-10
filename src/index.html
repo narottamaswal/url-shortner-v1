@@ -11,7 +11,24 @@
 </head>
 <body>
   <app-root></app-root>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
-</body>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCTk2VNTSpiuYqYKmJ5AKN2jinkDXOstlQ",
+      authDomain: "url-shortner-1f467.firebaseapp.com",
+      projectId: "url-shortner-1f467",
+      storageBucket: "url-shortner-1f467.appspot.com",
+      messagingSenderId: "665938615203",
+      appId: "1:665938615203:web:ad2b8c4d454c5c2b6dd816"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
+  </body>
 </html>
