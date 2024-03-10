@@ -1,4 +1,4 @@
-# UrlShortnerV1
+# Url Shortner
 
 # Angular TinyURL Shortener
 
@@ -111,4 +111,22 @@ copy(shortUrlElementRef: { innerHTML: string }) {
   }
 }
 ```
-### Customize the component's template (app.component.html) to include form inputs, buttons, and display areas as needed, and style it (app.component.css) to match your application's design.
+Customize the component's template (app.component.html) to include form inputs, buttons, and display areas as needed, and style it (app.component.css) to match your application's design.
+
+## Hosting the application on Firebase
+```
+npm install -g firebase-tools
+firebase login
+firebase init
+```
+
+#### Choose the only hosting option.
+```
+ng build --configuration production
+firebase deploy -m "commit message" --only hosting
+```
+#### App is deployed  <a href="https://url-shortner-1f467.web.app/" >HERE </a> </br>
+![image](https://github.com/narottamaswal/url-shortner-v1/assets/65083220/204cc42c-19cc-4897-aadb-1552f5a9e84a) </br></br>
+![image](https://github.com/narottamaswal/url-shortner-v1/assets/65083220/72e3e781-f673-4355-9710-a6d21cd5d67c)
+
+
