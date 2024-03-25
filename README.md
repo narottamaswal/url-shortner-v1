@@ -130,3 +130,48 @@ firebase deploy -m "commit message" --only hosting
 ![image](https://github.com/narottamaswal/url-shortner-v1/assets/65083220/72e3e781-f673-4355-9710-a6d21cd5d67c)
 
 
+#### Update: March 2024
+#### Dockerize the application
+```
+# Use the official Node.js image as the base image
+FROM node:latest as build
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install project dependencies
+RUN npm install --force
+
+# Copy the entire project to the container
+COPY . .
+
+# Build the Angular app for production
+
+RUN node_modules/.bin/ng build
+#RUN ng build
+
+# Use a smaller, production-ready image as the final image
+FROM nginx:alpine
+
+# Copy the production-ready Angular app to the Nginx webserver's root directory
+COPY --from=build /app/dist/url-shortner-v1/browser /usr/share/nginx/html
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+#### Pull the image
+```
+docker pull narottamaswal/url_shortner
+```
+
+
+
+
+
